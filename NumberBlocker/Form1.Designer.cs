@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.outBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnDisconnect = new System.Windows.Forms.Button();
@@ -128,7 +129,7 @@
             this.radioEnabled.Location = new System.Drawing.Point(6, 19);
             this.radioEnabled.Name = "radioEnabled";
             this.radioEnabled.Size = new System.Drawing.Size(58, 17);
-            this.radioEnabled.TabIndex = 0;
+            this.radioEnabled.TabIndex = 3;
             this.radioEnabled.TabStop = true;
             this.radioEnabled.Text = "Enable";
             this.radioEnabled.UseVisualStyleBackColor = true;
@@ -150,7 +151,7 @@
             this.txtPattern.Location = new System.Drawing.Point(56, 42);
             this.txtPattern.Name = "txtPattern";
             this.txtPattern.Size = new System.Drawing.Size(228, 20);
-            this.txtPattern.TabIndex = 2;
+            this.txtPattern.TabIndex = 4;
             // 
             // label2
             // 
@@ -176,14 +177,14 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(228, 82);
-            this.txtDescription.TabIndex = 4;
+            this.txtDescription.TabIndex = 5;
             // 
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(209, 156);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 4;
+            this.btnSubmit.TabIndex = 6;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -197,6 +198,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.outBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Teams Number Blocker v1.0.0";
