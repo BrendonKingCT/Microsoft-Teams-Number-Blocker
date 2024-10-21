@@ -32,3 +32,9 @@ Install-Module -Name MicrosoftTeams -Force -AllowClobber
 
 ## License
 This project is licensed under the GNU General Public License v3.0. See the LICENSE file for details.
+
+## Known Issues
+- PowerShell Module Not Found: If the Microsoft Teams PowerShell module is not installed, the application will fail to connect. Ensure that you have installed the module using the provided command.
+- Insufficient Permissions: If you encounter permission errors while executing commands, ensure that the application is run with elevated privileges (as an administrator).
+- UI Freezing During Connection: The application may freeze temporarily while establishing a connection to Teams. This is due to the synchronous execution of PowerShell commands. Consider using async patterns to improve the user experience.
+- Error Messages: Some error messages may not provide sufficient detail. If you encounter errors, check the PowerShell error stream for more information.
