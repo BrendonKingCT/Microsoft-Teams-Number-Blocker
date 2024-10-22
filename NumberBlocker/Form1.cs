@@ -22,7 +22,7 @@ namespace NumberBlocker
 
         private async void btnConnect_Click(object sender, EventArgs e)
         {
-            outBox.AppendText("Connecting..." + "\n");
+            outBox.AppendText("\nConnecting..." + "\n" + Environment.NewLine);
             btnConnect.Enabled = false;
 
             string tenantId = txtTenantId.Text;
@@ -55,7 +55,7 @@ namespace NumberBlocker
                     {
                         Invoke(new Action(() =>
                         {
-                            outBox.AppendText("\nFailed to set execution policy: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString())) + "\n");
+                            outBox.AppendText("\nFailed to set execution policy: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString())) + "\n" + Environment.NewLine);
                         }));
                         return;
                     }
@@ -70,7 +70,7 @@ namespace NumberBlocker
                     {
                         Invoke(new Action(() =>
                         {
-                            outBox.AppendText("\nModule Import Failed: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString()))+"\n");
+                            outBox.AppendText("\nModule Import Failed: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString()))+"\n" + Environment.NewLine);
                         }));
                         return;
                     }
@@ -89,14 +89,14 @@ namespace NumberBlocker
                     {
                         Invoke(new Action(() =>
                         {
-                            outBox.AppendText("\nLogin Failed: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString())) + "\n");
+                            outBox.AppendText("\nLogin Failed: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString())) + "\n" + Environment.NewLine);
                         }));
                     }
                     else
                     {
                         Invoke(new Action(() =>
                         {
-                            outBox.AppendText("\nLogin Successful!\n");
+                            outBox.AppendText("\nLogin Successful!\n" + Environment.NewLine);
                             groupBox2.Enabled = true;
                         }));
                     }
@@ -106,7 +106,7 @@ namespace NumberBlocker
             {
                 Invoke(new Action(() =>
                 {
-                    outBox.AppendText("Error: " + ex.Message + "\n");
+                    outBox.AppendText("Error: " + ex.Message + "\n" + Environment.NewLine);
                 }));
             }
         }
@@ -137,14 +137,14 @@ namespace NumberBlocker
                     {
                         Invoke(new Action(() =>
                         {
-                            outBox.AppendText("\nDisconnect Failed: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString())) + "\n");
+                            outBox.AppendText("\nDisconnect Failed: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString())) + Environment.NewLine);
                         }));
                     }
                     else
                     {
                         Invoke(new Action(() =>
                         {
-                            outBox.AppendText("\nDisconnected Successfully!\n");
+                            outBox.AppendText("\nDisconnected Successfully!" + Environment.NewLine);
                         }));
                     }
                 }
@@ -153,7 +153,7 @@ namespace NumberBlocker
             {
                 Invoke(new Action(() =>
                 {
-                    outBox.AppendText("\nError: " + ex.Message + "\n");
+                    outBox.AppendText("\nError: " + ex.Message + "\n" + Environment.NewLine);
                 }));
             }
             finally
@@ -215,14 +215,14 @@ namespace NumberBlocker
                     {
                         Invoke(new Action(() =>
                         {
-                            outBox.AppendText("\nFailed to create blocked number pattern: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString())) + "\n");
+                            outBox.AppendText("\nFailed to create blocked number pattern: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString())) + "\n" + Environment.NewLine);
                         }));
                     }
                     else
                     {
                         Invoke(new Action(() =>
                         {
-                            outBox.AppendText("\nBlocked number pattern created successfully!\n");
+                            outBox.AppendText("\nBlocked number pattern created successfully!\n" + Environment.NewLine);
                         }));
                     }
                 }
@@ -231,7 +231,7 @@ namespace NumberBlocker
             {
                 Invoke(new Action(() =>
                 {
-                    outBox.AppendText("Error: " + ex.Message);
+                    outBox.AppendText("Error: " + ex.Message + Environment.NewLine);
                 }));
             }
         }
