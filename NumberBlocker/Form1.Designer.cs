@@ -55,6 +55,8 @@
             // 
             // outBox
             // 
+            this.outBox.BackColor = System.Drawing.Color.Black;
+            this.outBox.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.outBox.Location = new System.Drawing.Point(308, 27);
             this.outBox.Multiline = true;
             this.outBox.Name = "outBox";
@@ -217,8 +219,9 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(93, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -231,7 +234,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // Form1
