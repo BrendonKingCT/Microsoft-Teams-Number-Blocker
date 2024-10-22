@@ -170,6 +170,8 @@ namespace NumberBlocker
         private void btnDisconnect_Click(object sender, EventArgs e)
         {
             DisconnectFromTeams();
+            groupBox2.Enabled = false;
+            btnDisconnect.Enabled = false;
         }
 
         private void CreateBlockedNumberPattern()
