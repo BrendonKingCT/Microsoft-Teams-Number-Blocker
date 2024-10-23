@@ -52,13 +52,13 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnSubmit_del = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPattern_del = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnDisconnect_del = new System.Windows.Forms.Button();
+            this.btnConnect_del = new System.Windows.Forms.Button();
+            this.txtTenantId_del = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -290,9 +290,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.btnSubmit_del);
             this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.textBox3);
+            this.groupBox4.Controls.Add(this.txtPattern_del);
             this.groupBox4.Enabled = false;
             this.groupBox4.Location = new System.Drawing.Point(6, 95);
             this.groupBox4.Name = "groupBox4";
@@ -301,14 +301,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Number Block Details";
             // 
-            // button3
+            // btnSubmit_del
             // 
-            this.button3.Location = new System.Drawing.Point(209, 45);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "Submit";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSubmit_del.Location = new System.Drawing.Point(209, 45);
+            this.btnSubmit_del.Name = "btnSubmit_del";
+            this.btnSubmit_del.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit_del.TabIndex = 6;
+            this.btnSubmit_del.Text = "Submit";
+            this.btnSubmit_del.UseVisualStyleBackColor = true;
+            this.btnSubmit_del.Click += new System.EventHandler(this.btnSubmit_del_Click);
             // 
             // label6
             // 
@@ -319,18 +320,18 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Pattern:";
             // 
-            // textBox3
+            // txtPattern_del
             // 
-            this.textBox3.Location = new System.Drawing.Point(56, 19);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(228, 20);
-            this.textBox3.TabIndex = 4;
+            this.txtPattern_del.Location = new System.Drawing.Point(56, 19);
+            this.txtPattern_del.Name = "txtPattern_del";
+            this.txtPattern_del.Size = new System.Drawing.Size(228, 20);
+            this.txtPattern_del.TabIndex = 4;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.btnDisconnect_del);
+            this.groupBox3.Controls.Add(this.btnConnect_del);
+            this.groupBox3.Controls.Add(this.txtTenantId_del);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Location = new System.Drawing.Point(6, 6);
             this.groupBox3.Name = "groupBox3";
@@ -339,31 +340,33 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tenant Connection";
             // 
-            // button1
+            // btnDisconnect_del
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(128, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Disconnect";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDisconnect_del.Enabled = false;
+            this.btnDisconnect_del.Location = new System.Drawing.Point(128, 45);
+            this.btnDisconnect_del.Name = "btnDisconnect_del";
+            this.btnDisconnect_del.Size = new System.Drawing.Size(75, 23);
+            this.btnDisconnect_del.TabIndex = 3;
+            this.btnDisconnect_del.Text = "Disconnect";
+            this.btnDisconnect_del.UseVisualStyleBackColor = true;
+            this.btnDisconnect_del.Click += new System.EventHandler(this.btnDisconnect_del_Click);
             // 
-            // button2
+            // btnConnect_del
             // 
-            this.button2.Location = new System.Drawing.Point(209, 45);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Connect";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnConnect_del.Location = new System.Drawing.Point(209, 45);
+            this.btnConnect_del.Name = "btnConnect_del";
+            this.btnConnect_del.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect_del.TabIndex = 2;
+            this.btnConnect_del.Text = "Connect";
+            this.btnConnect_del.UseVisualStyleBackColor = true;
+            this.btnConnect_del.Click += new System.EventHandler(this.btnConnect_del_Click);
             // 
-            // textBox1
+            // txtTenantId_del
             // 
-            this.textBox1.Location = new System.Drawing.Point(56, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtTenantId_del.Location = new System.Drawing.Point(56, 19);
+            this.txtTenantId_del.Name = "txtTenantId_del";
+            this.txtTenantId_del.Size = new System.Drawing.Size(228, 20);
+            this.txtTenantId_del.TabIndex = 1;
             // 
             // label4
             // 
@@ -431,14 +434,14 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnDisconnect_del;
+        private System.Windows.Forms.Button btnConnect_del;
+        private System.Windows.Forms.TextBox txtTenantId_del;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnSubmit_del;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPattern_del;
     }
 }
 

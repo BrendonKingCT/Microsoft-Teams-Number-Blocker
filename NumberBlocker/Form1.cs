@@ -98,6 +98,9 @@ namespace NumberBlocker
                         {
                             outBox.AppendText("\nLogin Successful!\n" + Environment.NewLine);
                             groupBox2.Enabled = true;
+                            groupBox4.Enabled = true;
+                            btnDisconnect.Enabled = true;
+                            btnDisconnect_del.Enabled = true;
                         }));
                     }
                 }
@@ -145,6 +148,10 @@ namespace NumberBlocker
                         Invoke(new Action(() =>
                         {
                             outBox.AppendText("\nDisconnected Successfully!" + Environment.NewLine);
+                            btnDisconnect.Enabled = false;
+                            btnDisconnect_del.Enabled= false;
+                            groupBox2.Enabled = false;
+                            groupBox4.Enabled = false;
                         }));
                     }
                 }
@@ -246,6 +253,91 @@ namespace NumberBlocker
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void btnConnect_del_Click(object sender, EventArgs e)
+        {
+            outBox.AppendText("\nConnecting..." + "\n" + Environment.NewLine);
+            btnConnect_del.Enabled = false;
+
+            string tenantId = txtTenantId_del.Text;
+
+            // Run the connection to Microsoft Teams asynchronously
+            await Task.Run(() => ConnectToTeams(tenantId));
+
+            btnConnect_del.Enabled = true;
+            btnDisconnect_del.Enabled = true;
+            groupBox4.Enabled = true;
+        }
+
+        private void btnDisconnect_del_Click(object sender, EventArgs e)
+        {
+            DisconnectFromTeams();
+            groupBox4.Enabled = false;
+            btnDisconnect_del.Enabled = false;
+        }
+
+        private void DeleteBlockedNumberPattern()
+        {
+            try
+            {
+                // Ensure that the runspace is created and opened
+                if (runspace == null)
+                {
+                    runspace = RunspaceFactory.CreateRunspace();
+                    runspace.Open();
+                }
+
+                using (PowerShell ps = PowerShell.Create())
+                {
+                    ps.Runspace = runspace;
+
+                    // Get values from the form
+                    string identity = "Number Block: " + txtPattern_del.Text;
+
+                    // Validate input
+                    if (string.IsNullOrEmpty(identity))
+                    {
+                        MessageBox.Show("Please enter a valid number pattern.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Prepare the command to create a blocked number pattern
+                    ps.AddCommand("Remove-CsInboundBlockedNumberPattern")
+                      .AddParameter("Identity", identity);
+
+                    // Execute the PowerShell command
+                    var results = ps.Invoke();
+
+                    // Check for errors
+                    if (ps.HadErrors)
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            outBox.AppendText("\nFailed to delete blocked number pattern: " + string.Join(", ", ps.Streams.Error.Select(e => e.ToString())) + "\n" + Environment.NewLine);
+                        }));
+                    }
+                    else
+                    {
+                        Invoke(new Action(() =>
+                        {
+                            outBox.AppendText("\nBlocked number pattern deleted successfully!\n" + Environment.NewLine);
+                        }));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Invoke(new Action(() =>
+                {
+                    outBox.AppendText("Error: " + ex.Message + Environment.NewLine);
+                }));
+            }
+        }
+
+        private void btnSubmit_del_Click(object sender, EventArgs e)
+        {
+            DeleteBlockedNumberPattern();
         }
     }
 }
